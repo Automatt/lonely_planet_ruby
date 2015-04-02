@@ -1,6 +1,4 @@
-
 require 'nokogiri'
-
 
 def atlas
   raise "Usage: ruby atlas.rb taxonomy_file destinations_file output_dir" unless ARGV.count == 3
@@ -38,11 +36,8 @@ class AtlasProcessor
   end
 end
 
-
 class Destination
-  attr_accessor :element, :template, :facts
-
-  attr_accessor :section_title, :last_section_title
+  attr_accessor :element, :template, :facts, :section_title
 
   def initialize(destination_element, content_template)
     self.element = destination_element
@@ -76,10 +71,8 @@ class Destination
   end
 
   def replace_navigation taxonomy
-
     navigation = []
     node = taxonomy.get_node atlas_id
-
     parent = node.parent
     while parent.title do
       navigation << parent.link
@@ -88,7 +81,6 @@ class Destination
     navigation.reverse!
     navigation << node.link
     navigation << node.child_links
-
     nav_section[0].inner_html = navigation.join("<br>")
   end
 
@@ -139,7 +131,6 @@ class Fact
     @@last_title = title
     html
   end
-
 end
 
 class Taxonomy

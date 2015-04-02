@@ -4,7 +4,12 @@
 
 This is simple file processor that will apply output a directory of html files based on an xml file of destinations and corresponding file of taxonomy.
 
-Usage: `ruby atlas.rb taxonomy.xml destinations.xml output`
+Usage: `ruby atlas.rb taxonomy.xml destinations.xml output_dir`
+
+## Requirements
+
+- Ruby 2.0 or greater (tested with 2.1.1p76)
+- The only gem needed is Nokogiri.  You can use `bundle install` if you need this.
 
 ## Features
 

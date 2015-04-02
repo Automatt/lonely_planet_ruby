@@ -113,7 +113,7 @@ class Destination
   end
 
   def filename
-    "#{atlas_id}_#{title.downcase}.html"
+    "#{atlas_id}_#{title.gsub(/ /,'_').downcase}.html"
   end
 end
 
@@ -170,7 +170,7 @@ class TaxonomyNode
   end
 
   def link
-    "<a href='#{atlas_id}_#{title.downcase}.html'>#{title}</a>"
+    "<a href='#{atlas_id}_#{title.gsub(/ /,'_').downcase}.html'>#{title}</a>"
   end
 
   def parent

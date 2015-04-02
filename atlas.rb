@@ -31,7 +31,7 @@ class AtlasProcessor
       destination.replace_title
       destination.replace_content
       destination.replace_navigation taxonomy
-      File.open("#{output_dir}/#{destination.filename}", 'w') {|file| file.write(destination.template)}
+      destination.write_file output_dir
     end
   end
 end
@@ -82,6 +82,10 @@ class Destination
     navigation << node.link
     navigation << node.child_links
     nav_section[0].inner_html = navigation.join("<br>")
+  end
+
+  def write_file output_dir
+    File.open("#{output_dir}/#{filename}", 'w') {|file| file.write(template)}
   end
 
   def atlas_id

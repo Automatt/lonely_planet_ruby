@@ -1,5 +1,7 @@
 require 'nokogiri'
 
+# Atlas - process destinations and taxonomy and apply to html template
+
 def atlas
   raise "Usage: ruby atlas.rb taxonomy_file destinations_file output_dir" unless ARGV.count == 3
   processor = AtlasProcessor.new(ARGV[0], ARGV[1], ARGV[2])
